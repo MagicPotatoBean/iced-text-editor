@@ -1,5 +1,5 @@
 [package]
-name = "to_do_list"
+name = "iced-text-editor"
 version = "0.1.0"
 edition = "2021"
 
