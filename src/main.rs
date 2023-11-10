@@ -50,7 +50,7 @@ impl Application for Editor {
                 error: None,
                 path: None,
                 theme: highlighter::Theme::SolarizedDark,
-                is_dirty: true,
+                is_dirty: false,
             },
             Command::perform(load_file(default_file()), Message::FileOpened),
         )
@@ -132,12 +132,12 @@ impl Application for Editor {
             .highlight::<Highlighter>(
                 highlighter::Settings {
                     theme: self.theme,
-                    extension: { if !self.is_dirty {self
+                    extension: {self
                         .path
                         .as_ref()
                         .and_then(|path| path.extension()?.to_str())
-                        .unwrap_or("rs")
-                        .to_string()} else {"txt".to_string()}},
+                        .unwrap_or("txt")
+                        .to_string()},
                 },
                 |highlight, _theme| highlight.to_format(),
             );
