@@ -43,7 +43,6 @@ fn main() -> iced::Result {
 
 
 struct Editor {
-    test: i32,
 
     content: text_editor::Content,
 
@@ -132,8 +131,6 @@ impl Application for Editor {
         match message {
 
             Message::New => {
-
-                self.test = 3;
 
                 self.path = None;
 
